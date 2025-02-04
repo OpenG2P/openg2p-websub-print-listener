@@ -10,7 +10,7 @@ RUN groupadd -g ${container_user_gid} ${container_user_group} \
 
 WORKDIR /app
 
-RUN install_packages nginx libpq-dev wkhtmltopdf \
+RUN install_packages libpq-dev wkhtmltopdf \
   && apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 RUN python3 -m pip install git+https://github.com/openg2p/openg2p-fastapi-common@develop#subdirectory=openg2p-fastapi-common
@@ -23,5 +23,7 @@ ADD --chown=${container_user}:${container_user_group} main.py /app
 
 RUN python3 -m pip install -e ./src
 
+USER ${container_user}
+
 ENTRYPOINT [ "bash" ]
-CMD ["-c" , "nginx -g 'daemon off;' &; exec python3 main.py run"]
+CMD ["-c" , "exec python3 main.py run"]

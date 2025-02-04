@@ -18,3 +18,8 @@ class Initializer(Initializer):
         InternalController().post_init()
         SubscribeController().post_init()
         SubscribeConfirmController().post_init()
+
+    def init_app(self):
+        app = super().init_app()
+        app.router.redirect_slashes = False
+        return app

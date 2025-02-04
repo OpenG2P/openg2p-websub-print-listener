@@ -1,6 +1,6 @@
 import logging
 
-from fastapi import Query
+from fastapi import Query, Response
 from openg2p_fastapi_common.controller import BaseController
 
 from ..config import Settings
@@ -87,4 +87,4 @@ class SubscribeConfirmController(BaseController):
             _logger.info("Group Create Subscription Success request called.")
         elif challenge:
             _logger.info("Group Create Subscription Verification request called.")
-            return challenge
+            return Response(content=challenge)

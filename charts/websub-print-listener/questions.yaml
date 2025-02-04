@@ -8,3 +8,15 @@ questions:
   type: string
   label: Keycloak Base URL
   show_if: "opensearch.enabled=true&&opensearch.dashboards.enabled=true"
+
+- variable: hubUrl
+  type: string
+  label: Websub Hub URL
+
+- variable: oidcClientId
+  type: string
+  label: Print Partner Keycloak Client ID
+
+- variable: oidcClientSecret
+  type: string
+  label: Print Partner Keycloak Client Secret
