@@ -1,3 +1,6 @@
+fix = true
+line-length = 110
+
 select = [
     "E",  # pycodestyle errors
     "W",  # pycodestyle warnings

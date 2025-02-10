@@ -19,6 +19,9 @@ dependencies = [
   "openg2p-fastapi-common",
   "jinja2",
   "pdfkit",
+  "aioboto3",
+  "python-magic",
+  "qrcode",
 ]
 dynamic = ["version"]
 

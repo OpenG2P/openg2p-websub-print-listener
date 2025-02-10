@@ -88,3 +88,4 @@ class SubscribeConfirmController(BaseController):
         elif challenge:
             _logger.info("Group Create Subscription Verification request called.")
             return Response(content=challenge)
+        return Response()

@@ -6,9 +6,7 @@ from . import __version__
 
 
 class Settings(Settings):
-    model_config = SettingsConfigDict(
-        env_prefix="print_", env_file=".env", extra="allow"
-    )
+    model_config = SettingsConfigDict(env_prefix="print_", env_file=".env", extra="allow")
 
     openapi_title: str = "Print WebSub Listener"
     openapi_description: str = """
@@ -30,9 +28,7 @@ class Settings(Settings):
 
     websub_callback_service_url: str = "http://websub-print-listener"
 
-    websub_auth_token_url: str = (
-        "https://keycloak.openg2p.org/realms/master/protocol/openid-connect/token"
-    )
+    websub_auth_token_url: str = "https://keycloak.openg2p.org/realms/master/protocol/openid-connect/token"
     websub_auth_client_id: str = ""
     websub_auth_client_secret: str = ""
     websub_auth_username: str = ""
@@ -46,26 +42,29 @@ class Settings(Settings):
 
     websub_topic_prefix_partner_id: bool = True
 
-    indv_template_path: str = ""
-    group_template_path: str = ""
+    s3_url: str = "http://localhost:9000"
+    s3_access_key_id: str = ""
+    s3_access_key_secret: str = ""
+    s3_bucket_name: str = "cards"
+
+    generated_file_name_pattern: str = 'str(input.uniqueId) + ".pdf"'
+
+    template_folder_path: str = "card_templates"
+
+    template_name_group_created: str = "group_created.html"
+    template_name_group_updated: str = "group_updated.html"
+    template_name_indv_created: str = "individual_created.html"
+    template_name_indv_updated: str = "individual_updated.html"
+
+    receive_response_await_file_gen: bool = False
 
     @model_validator(mode="after")
     def change_default_values(self):
         if not self.websub_partner_id:
-            self.websub_partner_id = (
-                self.websub_auth_username or self.websub_auth_client_id
-            )
+            self.websub_partner_id = self.websub_auth_username or self.websub_auth_client_id
         if self.websub_topic_prefix_partner_id:
-            self.websub_topic_group_created = (
-                f"{self.websub_partner_id}/{self.websub_topic_group_created}"
-            )
-            self.websub_topic_group_updated = (
-                f"{self.websub_partner_id}/{self.websub_topic_group_updated}"
-            )
-            self.websub_topic_indv_created = (
-                f"{self.websub_partner_id}/{self.websub_topic_indv_created}"
-            )
-            self.websub_topic_indv_updated = (
-                f"{self.websub_partner_id}/{self.websub_topic_indv_updated}"
-            )
+            self.websub_topic_group_created = f"{self.websub_partner_id}/{self.websub_topic_group_created}"
+            self.websub_topic_group_updated = f"{self.websub_partner_id}/{self.websub_topic_group_updated}"
+            self.websub_topic_indv_created = f"{self.websub_partner_id}/{self.websub_topic_indv_created}"
+            self.websub_topic_indv_updated = f"{self.websub_partner_id}/{self.websub_topic_indv_updated}"
         return self

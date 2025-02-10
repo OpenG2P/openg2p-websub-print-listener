@@ -112,9 +112,7 @@ class SubscribeController(BaseController):
 
     async def generic_subscribe_request(self, topic, url_suffix, mode="subscribe"):
         auth_token = await self.get_auth_token()
-        callback = (
-            f"{_config.websub_callback_service_url.rstrip('/')}/internal/{url_suffix}"
-        )
+        callback = f"{_config.websub_callback_service_url.rstrip('/')}/internal/{url_suffix}"
         async with httpx.AsyncClient() as client:
             res = await client.post(
                 _config.websub_hub_url,
@@ -156,7 +154,5 @@ class SubscribeController(BaseController):
             res.raise_for_status()
             res = res.json()
             self.access_token = res.get("access_token", None)
-            self.access_token_expires_after = datetime.now() + timedelta(
-                seconds=res.get("expires_in", None)
-            )
+            self.access_token_expires_after = datetime.now() + timedelta(seconds=res.get("expires_in", None))
         return self.access_token

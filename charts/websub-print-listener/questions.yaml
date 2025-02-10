@@ -9,14 +9,30 @@ questions:
   label: Keycloak Base URL
   show_if: "opensearch.enabled=true&&opensearch.dashboards.enabled=true"
 
-- variable: hubUrl
+- variable: envVars.PRINT_WEBSUB_HUB_URL
   type: string
   label: Websub Hub URL
 
-- variable: oidcClientId
+- variable: envVars.PRINT_WEBSUB_AUTH_CLIENT_ID
   type: string
   label: Print Partner Keycloak Client ID
 
-- variable: oidcClientSecret
+- variable: envVars.PRINT_WEBSUB_AUTH_CLIENT_SECRET
   type: string
   label: Print Partner Keycloak Client Secret
+
+- variable: minioInstallationName
+  type: string
+  label: Minio Service Name
+
+- variable: envVars.PRINT_WEBSUB_CALLBACK_SERVICE_URL
+  type: string
+  label: Callback Base Url
+  description: |-
+    For k8s internal communication, leave this parameter default.
+    Else give proper Url to reach this service.
+
+- variable: partnerHubSecret
+  type: string
+  label: Partner Hub Secret
+  description: Leave blank to generate automatically.

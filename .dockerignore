@@ -2,7 +2,7 @@
 .git
 .gitignore
 .gitattributes
-
+.github
 
 # CI
 .codeclimate.yml
@@ -85,5 +85,15 @@ venv/
 # Vim swap files
 **/*.swp
 
+# Code formatting
+.editorconfig
+.copier-answers.yml
+.pre-commit-config.yaml
+.ruff.toml
+.ruff_cache
+
 # VS Code
 .vscode/
+
+# K8s & Helm charts
+charts
