@@ -2,7 +2,7 @@
 
 from .config import Settings
 
-_config = Settings.get_config()
+_config: Settings = Settings.get_config()
 
 from openg2p_fastapi_common.app import Initializer
 
@@ -27,3 +27,7 @@ class Initializer(Initializer):
         app = super().init_app()
         app.router.redirect_slashes = False
         return app
+
+    def run_server(self, args):
+        _config._server_running = True
+        return super().run_server(args)

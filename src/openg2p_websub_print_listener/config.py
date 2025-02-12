@@ -17,6 +17,9 @@ class Settings(Settings):
     """
     openapi_version: str = __version__
 
+    # Internal Variable
+    _server_running: bool = False
+
     websub_hub_url: str = "http://localhost:9191/hub"
     websub_subscribe_lease_seconds: int | None = None
     websub_partner_id: str = ""

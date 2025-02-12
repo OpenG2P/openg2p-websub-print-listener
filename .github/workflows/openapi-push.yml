@@ -8,6 +8,10 @@ jobs:
   openapi-publish:
     name: OpenAPI Generate and Publish
     runs-on: ubuntu-latest
+    env:
+      BRANCH_NAME: ''
+      OPENAPI_CHANGED: false
+      STOPLIGHT_PROJECT_TOKEN: ${{ secrets.STOPLIGHT_PROJECT_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - name: Get branch name (merge)
@@ -41,10 +45,10 @@ jobs:
           add: "api-docs/generated/openapi.json"
       - name: Setup nodejs
         uses: actions/setup-node@v4
-        if: env.OPENAPI_CHANGED == 'true'
+        if: env.STOPLIGHT_PROJECT_TOKEN != '' && env.OPENAPI_CHANGED == 'true'
         with:
           node-version: '18'
       - name: Publish to stoplight
-        if: env.OPENAPI_CHANGED == 'true'
+        if: env.STOPLIGHT_PROJECT_TOKEN != '' && env.OPENAPI_CHANGED == 'true'
         run: |
-          npx @stoplight/cli@5 push --ci-token ${{ secrets.STOPLIGHT_PROJECT_TOKEN }} --url https://openg2p.stoplight.io --branch ${{ env.BRANCH_NAME }} --directory api-docs/generated
+          npx @stoplight/cli@5 push --ci-token ${{ env.STOPLIGHT_PROJECT_TOKEN }} --url https://openg2p.stoplight.io --branch ${{ env.BRANCH_NAME }} --directory api-docs/generated
