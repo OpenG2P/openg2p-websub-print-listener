@@ -129,6 +129,6 @@ jobs:
         author_name: openg2pbot
         author_email: bot@openg2p.org
         default_author: user_info
-        message: 'added helm charts for publish openg2p/websub-print-listener@${{ github.sha }}'
+        message: 'added helm charts for publish openg2p/openg2p-websub-print-listener@${{ github.sha }}'
         add: './*.tgz ./index.yaml rancher/index.yaml'
       if: env.SKIP != 'TRUE'

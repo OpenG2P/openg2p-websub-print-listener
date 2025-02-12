@@ -7,10 +7,10 @@ github_ci_precommit: true
 github_ci_pypi_publish: true
 github_ci_tests: true
 github_ci_tests_codecov: true
-module_name: websub_print_listener
+module_name: openg2p_websub_print_listener
 org_name: OpenG2P
 org_slug: OpenG2P
-package_name: websub-print-listener
-repo_name: WebSub Print Listener
-repo_slug: websub-print-listener
+package_name: openg2p-websub-print-listener
+repo_name: OpenG2P WebSub Print Listener
+repo_slug: openg2p-websub-print-listener
 

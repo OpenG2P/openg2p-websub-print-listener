@@ -2,7 +2,7 @@
 
 # ruff: noqa: I001
 
-from websub_print_listener.app import Initializer
+from openg2p_websub_print_listener.app import Initializer
 from openg2p_fastapi_common.ping import PingInitializer
 
 main_init = Initializer()

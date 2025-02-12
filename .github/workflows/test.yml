@@ -34,7 +34,7 @@ jobs:
           python -m pip install -e .
       - name: Run test suite
         run: |
-          pytest --cov-branch --cov-report=term-missing --cov=websub_print_listener --cov=tests
+          pytest --cov-branch --cov-report=term-missing --cov=openg2p_websub_print_listener --cov=tests
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:

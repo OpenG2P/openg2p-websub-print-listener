@@ -26,7 +26,7 @@ class Settings(Settings):
     # Used for https://www.w3.org/TR/websub/#authenticated-content-distribution.
     websub_partner_hub_secret: str = ""
 
-    websub_callback_service_url: str = "http://websub-print-listener"
+    websub_callback_service_url: str = "http://openg2p-websub-print-listener"
 
     websub_auth_token_url: str = "https://keycloak.openg2p.org/realms/master/protocol/openid-connect/token"
     websub_auth_client_id: str = ""

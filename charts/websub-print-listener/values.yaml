@@ -52,7 +52,7 @@ service:
 ## Here the version used is slightly modified version of 1.1.5 - this has been done to make it compatiable
 ## with biosdk 'develop' version.  TODO: Change this later
 image:
-  repository: openg2p/websub-print-listener
+  repository: openg2p/openg2p-websub-print-listener
   tag: develop
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'

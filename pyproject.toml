@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "websub-print-listener"
+name = "openg2p-websub-print-listener"
 authors = [
   { name="OpenG2P", email="info@openg2p.org" },
 ]
@@ -28,8 +28,8 @@ dynamic = ["version"]
 [project.urls]
 Homepage = "https://openg2p.org"
 Documentation = "https://docs.openg2p.org/"
-Repository = "https://github.com/OpenG2P/websub-print-listener"
-Source = "https://github.com/OpenG2P/websub-print-listener"
+Repository = "https://github.com/OpenG2P/openg2p-websub-print-listener"
+Source = "https://github.com/OpenG2P/openg2p-websub-print-listener"
 
 [tool.hatch.version]
-path = "src/websub_print_listener/__init__.py"
+path = "src/openg2p_websub_print_listener/__init__.py"
