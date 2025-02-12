@@ -1,0 +1,574 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    background-color: #3A4153;
+}
+
+.container {
+    width: 600px;
+    height: 450px;
+
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    margin-top: 139px;
+    margin-bottom: 139px;
+}
+
+.inner-container {
+    width: 600px;
+    height: 450px;
+    opacity: 1;
+    position: absolute;
+
+    overflow: hidden;
+}
+
+.card {
+    width: 550px;
+    height: 400px;
+    background: rgba(255, 255, 255, 1);
+    opacity: 1;
+    position: relative;
+    top: 25px;
+    left: 25px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 1.0);
+}
+
+.bar {
+    width: 110px;
+    height: 12px;
+    background: rgba(217, 217, 217, 1);
+    opacity: 1;
+    position: absolute;
+    top: 368px;
+    left: 30px;
+    overflow: hidden;
+}
+
+.line {
+    width: 490px;
+    height: 2px;
+    background: rgba(217, 217, 217, 1);
+    opacity: 1;
+    position: absolute;
+    top: 331px;
+    left: 30px;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 320px;
+    height: 320px;
+    background: url("{{ renderer.convert_bin_to_htmlsafe(renderer.get_binary_template_data('images/background.png')) }}");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.12;
+    position: absolute;
+    top: 10px;
+    left: 115px;
+    overflow: hidden;
+}
+
+.name-container {
+    width: 140px;
+    height: 32px;
+    opacity: 1;
+    position: absolute;
+    top: 180px;
+    left: 155px;
+    overflow: hidden;
+}
+
+.name {
+    width: 100%;
+    color: rgba(21, 46, 99, 1);
+    position: absolute;
+    top: 16px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: Medium;
+    font-size: 14px;
+    opacity: 1;
+    text-align: left;
+}
+
+.relation {
+    width: 23px;
+    color: rgba(102, 102, 102, 1);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: Regular;
+    font-size: 14px;
+    opacity: 1;
+    text-align: left;
+}
+
+.dob-container {
+    width: 100%;
+    height: 32px;
+    opacity: 1;
+    position: absolute;
+    top: 175px;
+    left: 350px;
+    overflow: hidden;
+}
+
+.dob {
+    width: 74px;
+    color: rgba(21, 46, 99, 1);
+    position: absolute;
+    top: 16px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: Medium;
+    font-size: 14px;
+    opacity: 1;
+    text-align: left;
+}
+
+.dob-label {
+    width: 79px;
+    color: rgba(102, 102, 102, 1);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: Regular;
+    font-size: 14px;
+    opacity: 1;
+    text-align: left;
+}
+
+.address-container {
+    width: 203px;
+    height: 48px;
+    opacity: 1;
+    position: absolute;
+    top: 214px;
+    left: 155px;
+    overflow: hidden;
+}
+
+.address {
+    width: 203px;
+    color: rgba(21, 46, 99, 1);
+    position: absolute;
+    top: 16px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: Medium;
+    font-size: 14px;
+    opacity: 1;
+    text-align: left;
+}
+
+.address-label {
+    width: 52px;
+    color: rgba(102, 102, 102, 1);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: Regular;
+    font-size: 14px;
+    opacity: 1;
+    text-align: left;
+}
+
+.footer {
+    width: 550px;
+    height: 60px;
+    opacity: 1;
+    position: absolute;
+    bottom: 0px;
+    /* Ensure the footer is at the bottom */
+    left: 0px;
+    overflow: hidden;
+}
+
+.footer-bar {
+    width: 550px;
+    height: 10px;
+    background: rgba(1, 166, 79, 1);
+    opacity: 1;
+    position: relative;
+    /* top: 278px; */
+    left: 0px;
+    overflow: hidden;
+}
+
+
+.footer-background {
+    width: 550px;
+    height: 50px;
+    background: rgba(211, 172, 103, 1);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.id-container {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 354px;
+    left: 35px;
+    overflow: hidden;
+}
+
+.id {
+    width: 210px;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: SemiBold;
+    font-size: 18px;
+    opacity: 1;
+    text-align: left;
+}
+
+.id-label {
+    width: 14px;
+    color: rgba(102, 102, 102, 1);
+    position: absolute;
+    top: 17px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: Regular;
+    font-size: 14px;
+    opacity: 1;
+    text-align: left;
+}
+
+.head-container {
+    width: 100%;
+    height: 35px;
+    opacity: 1;
+    position: absolute;
+    top: 133px;
+    left: 155px;
+    overflow: hidden;
+}
+
+.head {
+    width: 100%;
+    color: rgba(1, 166, 79, 1);
+    position: absolute;
+    top: 14px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: SemiBold;
+    font-size: 18px;
+    opacity: 1;
+    text-align: left;
+}
+
+.head-label {
+    width: 94px;
+    color: rgba(102, 102, 102, 1);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: Regular;
+    font-size: 14px;
+    opacity: 1;
+    text-align: left;
+}
+
+.family-id-container {
+    width: 100%;
+    height: 29px;
+    opacity: 1;
+    position: absolute;
+    top: 288px;
+    left: 155px;
+    overflow: hidden;
+}
+
+.family-id {
+    width: 100%;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: SemiBold;
+    font-size: 25px;
+    opacity: 1;
+    text-align: left;
+}
+
+.family-id-label {
+    width: 58px;
+    color: rgba(102, 102, 102, 1);
+    position: absolute;
+    top: 6px;
+    left: 0px;
+    font-family: Roboto;
+    font-weight: Regular;
+    font-size: 14px;
+    opacity: 1;
+    text-align: left;
+}
+
+.image-container {
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+    position: absolute;
+    top: 145px;
+    left: 35px;
+    overflow: hidden;
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.image-overlay {
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.image-background {
+    width: 100px;
+    height: 100px;
+    background: rgba(217, 217, 217, 1);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-frame {
+    width: 100px;
+    height: 100px;
+    background: url("{{ input.get('groupData', {}).get('image', renderer.convert_bin_to_htmlsafe(renderer.get_binary_template_data('images/default_group_photo.png'))) }}");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+
+    overflow: hidden;
+}
+
+.image-box {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 1);
+    opacity: 1;
+    position: absolute;
+    top: 256px;
+    left: 415px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-box-inner {
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+    position: absolute;
+    top: 267px;
+    left: 425px;
+    overflow: hidden;
+}
+
+.image-box-overlay {
+    width: 100px;
+    height: 100px;
+    background: url("{{ renderer.generate_qrcode_htmlsafe(input.get('qrcode')) }}");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+
+}
+
+.header {
+    width: 550px;
+    height: 108px;
+    opacity: 1;
+    position: absolute;
+    top: 20px;
+    /* left: 55px; */
+    overflow: hidden;
+}
+
+.header-bar-left {
+    width: 30px;
+    height: 108px;
+    /* background: rgba(1,166,79,1); */
+    opacity: 1;
+    /* position: absolute; */
+    top: 0px;
+    left: 0px;
+    /* overflow: hidden; */
+    float: left;
+}
+
+.header-bar-small-left-top {
+    width: 20px;
+    height: 10px;
+    background: rgba(1, 166, 79, 1);
+    opacity: 1;
+    position: relative;
+    top: 40px;
+    /* left: 470px; */
+    overflow: hidden;
+}
+
+.header-bar-small-left-bottom {
+    width: 20px;
+    height: 10px;
+    background: rgba(211, 172, 103, 1);
+    opacity: 1;
+    position: relative;
+    top: 50px;
+    left: 0px;
+    overflow: hidden;
+}
+
+.header-bar {
+    width: 10px;
+    height: 108px;
+    background: rgba(1, 166, 79, 1);
+    opacity: 1;
+    /* position: absolute; */
+    top: 0px;
+    left: 0px;
+    /* overflow: hidden; */
+    float: left;
+}
+
+.header-image {
+    width: 108px;
+    height: 108px;
+    background: url("{{ renderer.convert_bin_to_htmlsafe(renderer.get_binary_template_data('images/govt_logo.png')) }}");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    float: left;
+}
+
+.header-title {
+    position: relative;
+    width: 332px;
+    height: 75px;
+    float: left;
+    left: 17px;
+    top: 15px;
+}
+
+.header-title-text {
+    display: block;
+    color: black;
+    font-family: 'Roboto Slab', serif;
+    font-size: 22px;
+    font-weight: 500;
+    /* Medium */
+    padding-top: 12px;
+}
+
+.header-subtitle-text {
+    display: block;
+    color: #01A64F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    /* SemiBold */
+    /* margin-top: 27px; Adjust the margin to position it correctly */
+}
+
+.header-bar-right {
+    width: 80px;
+    height: 108px;
+    /* background: rgba(1,166,79,1); */
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    /* overflow: hidden; */
+    float: left;
+}
+
+.header-bar-right-top {
+    width: 80px;
+    height: 10px;
+    background: rgba(1, 166, 79, 1);
+    opacity: 1;
+    position: relative;
+    top: 40px;
+    right: 0px;
+    /* left: 470px; */
+    /* overflow: hidden; */
+}
+
+.header-bar-right-bottom {
+    width: 80px;
+    height: 10px;
+    background: rgba(211, 172, 103, 1);
+    opacity: 1;
+    position: relative;
+    top: 50px;
+
+    /* left: 0px; */
+    /* overflow: hidden; */
+}
+
+.header-text {
+    width: 107px;
+    color: rgba(1, 166, 79, 1);
+    position: absolute;
+    top: 57px;
+    left: 126px;
+    font-family: Roboto;
+    font-weight: SemiBold;
+    font-size: 20px;
+    opacity: 1;
+    text-align: left;
+}

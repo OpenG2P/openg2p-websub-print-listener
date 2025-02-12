@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="pdfkit-page-size" content="A5"/>
+    <meta name="pdfkit-orientation" content="Landscape"/>
+    <meta name="pdfkit-margin-top" content="0.0in" />
+    <meta name="pdfkit-margin-right" content="0.0in" />
+    <meta name="pdfkit-margin-bottom" content="0.0in" />
+    <meta name="pdfkit-margin-left" content="0.0in" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet" />
+    <style>
+{% include "main.css" %}
+    </style>
+    <title>Family Card</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inner-container">
+            <div class="card">
+                <div class="header">
+                    <div class="header-bar-left">
+                        <div class="header-bar-small-left-top"></div>
+                        <div class="header-bar-small-left-bottom"></div>
+                    </div>
+                    <div class="header-image"></div>
+
+                    <div class="header-title">
+                        <span class="header-title-text">Central Government</span>
+                        <span class="header-subtitle-text">Family Card</span>
+                    </div>
+                    <div class="header-bar-right">
+                        <div class="header-bar-right-top"></div>
+                        <div class="header-bar-right-bottom"></div>
+                    </div>
+                </div>
+                <!-- <div class="bar"></div>
+                <div class="line"></div> -->
+                <div class="background-image"></div>
+                {% set ns = namespace(head_membership=false) %}
+                {% for member in input.groupData.group_membership_ids %}
+                {% if not ns.head_membership and 1 in member.kind %}
+                {% set ns.head_membership = member %}
+                {% endif %}
+                {% endfor %}
+                <div class="head-container">
+                    <span class="head">
+                        {{ ' '.join([ns.head_membership.individual.given_name, ns.head_membership.individual.addl_name, ns.head_membership.individual.family_name]) }}
+                    </span>
+                    <span class="head-label">Head of Family</span>
+                </div>
+                <div class="name-container">
+                    <span class="name">
+                        {{ ns.head_membership.individual.care_of.split(':')[-1].strip() }}
+                    </span>
+                    <span class="relation">
+                        {{ ns.head_membership.individual.care_of.split(':')[0].strip() }}
+                    </span>
+                </div>
+                <div class="dob-container">
+                    <span class="dob">
+                        {{ ns.head_membership.individual.birthdate }}
+                    </span>
+                    <span class="dob-label">Date of Birth</span>
+                </div>
+                <div class="address-container">
+                    <span class="address">
+                        {{ ', '.join([input.groupData.get('house_no', ''), input.groupData.get('street', ''), input.groupData.get('locality', ''), input.groupData.get('city', ''), input.groupData.get('zip', '')]) }}
+                    </span>
+                    <span class="address-label">Address</span>
+                </div>
+                <div class="family-id-container">
+                    <span class="family-id">{{ " ".join([input.uniqueId[0:3], input.uniqueId[3:6], input.uniqueId[6:9], input.uniqueId[9:]]) }}</span>
+                </div>
+                <div class="footer">
+                    <div class="footer-bar"></div>
+                    <div class="footer-background"></div>
+                </div>
+                <div class="image-container">
+                    <div class="image">
+                        <div class="image-overlay">
+                            <div class="image-background"></div>
+                            <div class="image-frame"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-box"></div>
+                <div class="image-box-inner">
+                    <div class="image-box-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
