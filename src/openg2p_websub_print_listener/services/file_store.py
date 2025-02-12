@@ -16,7 +16,8 @@ class FileStoreService(BaseService):
     def __init__(self, **kw):
         super().__init__(**kw)
         self.aws_session = aioboto3.Session()
-        asyncio.run(self.get_or_create_bucket(_config.s3_bucket_name))
+        if _config._server_running:
+            asyncio.run(self.get_or_create_bucket(_config.s3_bucket_name))
 
     async def save_file(self, name, data: bytes, mimetype=None, **kw):
         file_io = io.BytesIO()

@@ -28,7 +28,8 @@ class TemplateRendererService(BaseService):
 
         self._unsafe_eval = None
 
-        self.check_if_templates_exist()
+        if _config._server_running:
+            self.check_if_templates_exist()
 
     def get_unsafe_eval(self):
         if not self._unsafe_eval:
